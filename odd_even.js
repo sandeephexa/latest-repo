@@ -1,9 +1,10 @@
 var express = require('express');
-
-const http = require('http');
-console.log("working fine");
-exports.oddEvenWebhook = (req, res) => {
-  // Get the number from the request
+var app = express();
+var bodyParser=require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.post("/", function (req, res) 
+{
   var number = req.body.result.parameters['number']; // city is a required param
   var message ='';
   if(number % 2 == 0)
@@ -13,10 +14,17 @@ exports.oddEvenWebhook = (req, res) => {
     else{
              message = "given number is odd";
         }
-
-      res.setHeader('Content-Type', 'application/json');
-    res.send(JSON.stringify({ 'speech': message, 'displayText': message }));
+ return res.json({
+                speech: message,
+                displayText:message,
+                source: 'agent'
+            });
+      //res.setHeader('Content-Type', 'application/json');
+    //res.send(JSON.stringify({ 'speech': message, 'displayText': message }));
   
 }
+         app.listen(process.env.PORT || 3000, function (message) {
+    console.log("Server is running on the port...");
+})
 
 
