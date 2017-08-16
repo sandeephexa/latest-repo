@@ -5,14 +5,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/", function (req, res) 
 {
-  var number = req.body.result.parameters['number']; // city is a required param
+  var number = req.body.result.parameters['number']; // number is a required param
   var message ='';
   if(number % 2 == 0)
     {
-         message = "given number is even";
+         message = "Given number is Even";
     }
     else{
-             message = "given number is odd";
+             message = "Given number is Odd";
         }
  return res.json({
                 speech: message,
