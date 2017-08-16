@@ -22,9 +22,7 @@ app.post("/", function (req, res)
       //res.setHeader('Content-Type', 'application/json');
     //res.send(JSON.stringify({ 'speech': message, 'displayText': message }));
   
-}
+})
          app.listen(process.env.PORT || 3000, function (message) {
     console.log("Server is running on the port...");
 })
-
-
