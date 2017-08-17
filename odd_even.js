@@ -12,25 +12,47 @@ fs.writeFileSync("./data.json",JSON.stringify(req.body),'utf8');
 var sender_id=req.body.originalRequest.data.sender.id;
 var rec_id=req.body.originalRequest.data.recipient.id;
 
-    if (req.body.result.action == "input.welcome") {
-        if (req.body.result.resolvedQuery == "hi") {
-         request({
-            uri: fburl+sender_id+"?access_token="+FACEBOOK_ACCESS_TOKEN,
-            methos: 'GET'
-        }, (err, response, body) => {
-            let bodys=JSON.parse(body);
-          return res.json({
-                speech:"Welcome, "+bodys.first_name+" "+bodys.last_name,
-                displayText: "Welcome, "+bodys.first_name+" "+bodys.last_name,
-                source: 'agent'
-            });
-        });
+    if (req.body.result.action == "input.welcome")
+    {
+        if (req.body.result.resolvedQuery == "hi") 
+        {
+         request(
+             {
+                uri: fburl+sender_id+"?access_token="+FACEBOOK_ACCESS_TOKEN,
+                methos: 'GET'
+             },
+             (err, response, body) => 
+             {
+                  let bodys=JSON.parse(body);
+                  return res.json(
+                  {
+                        speech:"Welcome, "+bodys.first_name+" "+bodys.last_name,
+                        displayText: "Hi, "+bodys.first_name+" "+bodys.last_name,
+                        source: 'agent'
+                   });
+             });
        
               
-            
         }
 
     }
+
+    if (req.body.result.action == "getresult") 
+  {
+    if(number % 2 == 0)
+    {
+         message = "Given number is Even";
+    }
+    else{
+             message = "Given number is Odd";
+        }
+    return res.json({
+                speech: message,
+                displayText:message,
+                source: 'agent'
+            });
+  }
+
 });
 
 app.get("/getdata/",function(req, res){
