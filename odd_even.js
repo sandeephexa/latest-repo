@@ -16,7 +16,7 @@ app.post("/", function (req, res)
   
   if (req.body.result.action == "input.welcome") 
   {
-        if (req.body.result.given-name == "hi") 
+        if (req.body.result.resolvedQuery  == "hi") 
         {
          request(
              {
