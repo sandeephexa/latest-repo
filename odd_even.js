@@ -26,7 +26,7 @@ var rec_id=req.body.originalRequest.data.recipient.id;
                   let bodys=JSON.parse(body);
                   return res.json(
                   {
-                        speech:"Welcome, "+bodys.first_name+" "+bodys.last_name,
+                        speech:"Hi, "+bodys.first_name+" "+bodys.last_name,
                         displayText: "Hi, "+bodys.first_name+" "+bodys.last_name,
                         source: 'agent'
                    });
@@ -37,7 +37,7 @@ var rec_id=req.body.originalRequest.data.recipient.id;
 
     }
 
-    if (req.body.result.action == "getresult") 
+    if (req.body.result.action == "input.unknown") 
   {
     if(number % 2 == 0)
     {
