@@ -106,10 +106,10 @@ var message = '';
 
 });
 
-app.get("/getdata/",function(req, res){
-   fs.readFile("./data.json",'utf-8',function(err,data){
-      res.json(data);
-   });
+//app.get("/getdata/",function(req, res){
+  //fs.readFile("./data.json",'utf-8',function(err,data){
+   //   res.json(data);
+  // });
    
 });
 app.listen(process.env.PORT || 3000, function (message) {
