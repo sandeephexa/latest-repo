@@ -14,37 +14,47 @@ app.post("/", function (req, res)
   var rec_id=req.body.originalRequest.data.recipient.id;
   var message ='';
   
-  if (req.body.result.action == "input.welcome") {
-        if (req.body.result.resolvedQuery == "hi") {
-         request({
+  if (req.body.result.action == "input.welcome") 
+  {
+        if (req.body.result.given-name == "hi") 
+        {
+         request(
+             {
             uri: fburl+sender_id+"?access_token="+FACEBOOK_ACCESS_TOKEN,
             methos: 'GET'
-        }, (err, response, body) => {
-            let bodys=JSON.parse(body);
-          return res.json({
-                speech:"Welcome, "+bodys.first_name+" "+bodys.last_name,
-                displayText: "Welcome, "+bodys.first_name+" "+bodys.last_name,
-                source: 'agent'
-            });
-        });
-
+             },
+             (err, response, body) => 
+             {
+                let bodys=JSON.parse(body);
+                return res.json(
+                {
+                    speech:"Welcome, "+bodys.first_name+" "+bodys.last_name,
+                    displayText: "Welcome, "+bodys.first_name+" "+bodys.last_name,
+                    source: 'agent'
+                });
+             });
+        }
+  }
   
-  if(number % 2 == 0)
+  if (req.body.result.action == "getresult") 
+  {
+    if(number % 2 == 0)
     {
          message = "Given number is Even";
     }
     else{
              message = "Given number is Odd";
         }
- return res.json({
+    return res.json({
                 speech: message,
                 displayText:message,
                 source: 'agent'
             });
+  }
       //res.setHeader('Content-Type', 'application/json');
     //res.send(JSON.stringify({ 'speech': message, 'displayText': message }));
   
-})
+    });
          app.listen(process.env.PORT || 3000, function (message) {
     console.log("Server is running on the port...");
 })
