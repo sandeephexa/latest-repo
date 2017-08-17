@@ -53,58 +53,75 @@ var message = '';
   }
   if (req.body.result.action == "result.result-custom") 
     {
-        if (req.body.result.resolvedQuery == "get my profile picture") {
-         request({
-            uri: fburl+sender_id+"?access_token="+FACEBOOK_ACCESS_TOKEN,
-            methos: 'GET'
-        }, (err, response, body) => {
-            let bodys=JSON.parse(body);
-          return res.json({
-                speech:"Profile, "++bodys.profile_pic,
+        if (req.body.result.resolvedQuery == "get my profile picture") 
+        {
+         request(
+             {
+                uri: fburl+sender_id+"?access_token="+FACEBOOK_ACCESS_TOKEN,
+                methos: 'GET'
+             }, (err, response, body) => 
+             {
+                let bodys=JSON.parse(body);
+                return res.json({
+                speech:"Profile, "+bodys.profile_pic,
                 displayText: "Profile, "+bodys.profile_pic,
                 source: 'agent',
-              messages: [{
-        "type": 4,
-        "platform": "facebook",
-        "payload": {
-            "facebook": {
-                "attachment": {
-                    "type":"template",
-                    "payload":{
-                    "template_type": "generic",
-                    "elements": [{
+                 messages: [
+                                {
+                                     "type": 4,
+                                     "platform": "facebook",
+                                     "payload": 
+                                     {
+                                        "facebook":
+                                         {
+                                            "attachment": 
+                                            {
+                                                    "type":"template",
+                                                    "payload":
+                                                    {
+                                                        "template_type": "generic",
+                                                        "elements": 
+                                                        [{
+                                                            "title": "Welcome, "+bodys.first_name+" "+bodys.last_name,
+                                                            "image_url": bodys.profile_pic,
+                                                             "subtitle":bodys.timezone+", "+bodys.gender,
+                                                             "buttons": 
+                                                             [
+                                                                {
+                                                                 "type": "postback",
+                                                                 "title": "listings",
+                                                                  "payload": "listings"
+                                                                },
+                                                                {
+                                                                     "type": "postback",
+                                                                    "title": "stats",
+                                                                    "payload": "stats"
+                                                                 }
+                                                             ]
+                                                        }]
+                                                    }
+                                            }
+                                         }
+                                     }
+                                }
+                    ,{
                         "title": "Welcome, "+bodys.first_name+" "+bodys.last_name,
                         "image_url": bodys.profile_pic,
                         "subtitle":bodys.timezone+", "+bodys.gender,
                          "buttons": [
-                    {
-                      "type": "postback",
-                      "title": "listings",
-                      "payload": "listings"
-                    },
-                    {
-                      "type": "postback",
-                      "title": "stats",
-                      "payload": "stats"
+                        {
+                            "type": "postback",
+                            "title": "listings",
+                            "payload": "listings"
+                        },
+                        {
+                            "type": "postback",
+                            "title": "stats",
+                            "payload": "stats"
+                        }
+                        ]
                     }
-                  ]
-                    },{
-                        "title": "Welcome, "+bodys.first_name+" "+bodys.last_name,
-                        "image_url": bodys.profile_pic,
-                        "subtitle":bodys.timezone+", "+bodys.gender,
-                         "buttons": [
-                    {
-                      "type": "postback",
-                      "title": "listings",
-                      "payload": "listings"
-                    },
-                    {
-                      "type": "postback",
-                      "title": "stats",
-                      "payload": "stats"
-                    }
-                  ]
-                    }]
+                     ]
             });
         });
        
