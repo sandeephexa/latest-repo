@@ -82,45 +82,17 @@ var message = '';
                                                         "template_type": "generic",
                                                         "elements": 
                                                         [{
-                                                            "title": "Welcome, "+bodys.first_name+" "+bodys.last_name,
+                                                            "title": "profile, "+bodys.first_name+" "+bodys.last_name,
                                                             "image_url": bodys.profile_pic,
                                                              "subtitle":bodys.timezone+", "+bodys.gender,
-                                                             "buttons": 
-                                                             [
-                                                                {
-                                                                 "type": "postback",
-                                                                 "title": "listings",
-                                                                  "payload": "listings"
-                                                                },
-                                                                {
-                                                                     "type": "postback",
-                                                                    "title": "stats",
-                                                                    "payload": "stats"
-                                                                 }
-                                                             ]
+                                                             
                                                         }]
                                                     }
                                             }
                                          }
                                      }
                                 }
-                    ,{
-                        "title": "Welcome, "+bodys.first_name+" "+bodys.last_name,
-                        "image_url": bodys.profile_pic,
-                        "subtitle":bodys.timezone+", "+bodys.gender,
-                         "buttons": [
-                        {
-                            "type": "postback",
-                            "title": "listings",
-                            "payload": "listings"
-                        },
-                        {
-                            "type": "postback",
-                            "title": "stats",
-                            "payload": "stats"
-                        }
-                        ]
-                    }
+                    
                      ]
             });
         });
