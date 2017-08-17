@@ -33,21 +33,7 @@ var rec_id=req.body.originalRequest.data.recipient.id;
         }
 
     }
-  if (req.body.result.action == "input.unknown") 
-  {
-    if(number % 2 == 0)
-    {
-         message = "Given number is Even";
-    }
-    else{
-             message = "Given number is Odd";
-        }
-    return res.json({
-                speech: message,
-                displayText:message,
-                source: 'agent'
-            });
-  }
+  
 
 });
 
