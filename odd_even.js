@@ -51,6 +51,26 @@ var message = '';
                 source: 'agent'
             });
   }
+  if (req.body.result.action == "result.result-custom") 
+    {
+        if (req.body.result.resolvedQuery == "get my profile picture") {
+         request({
+            uri: fburl+sender_id+"?access_token="+FACEBOOK_ACCESS_TOKEN,
+            methos: 'GET'
+        }, (err, response, body) => {
+            let bodys=JSON.parse(body);
+          return res.json({
+                speech:"Profile, "+bodys.profile_pic,
+                displayText: "Profile, "+bodys.first_name,
+                source: 'agent'
+            });
+        });
+       
+              
+            
+        }
+
+    }
   
 
 });
@@ -64,3 +84,4 @@ app.get("/getdata/",function(req, res){
 app.listen(process.env.PORT || 3000, function (message) {
     console.log("Server is running on the port...");
 })
+
