@@ -14,7 +14,7 @@ var rec_id=req.body.originalRequest.data.recipient.id;
 
     if (req.body.result.action == "input.welcome")
     {
-        if (req.body.result.resolvedQuery == "hi") 
+        if (req.body.result.resolvedQuery == "Hi") 
         {
          request(
              {
