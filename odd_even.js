@@ -60,9 +60,51 @@ var message = '';
         }, (err, response, body) => {
             let bodys=JSON.parse(body);
           return res.json({
-                speech:"Profile, "+bodys.profile_pic,
-                displayText: "Profile, "+bodys.first_name,
-                source: 'agent'
+                speech:"Profile, "++bodys.profile_pic,
+                displayText: "Profile, "+bodys.profile_pic,
+                source: 'agent',
+              messages: [{
+        "type": 4,
+        "platform": "facebook",
+        "payload": {
+            "facebook": {
+                "attachment": {
+                    "type":"template",
+                    "payload":{
+                    "template_type": "generic",
+                    "elements": [{
+                        "title": "Welcome, "+bodys.first_name+" "+bodys.last_name,
+                        "image_url": bodys.profile_pic,
+                        "subtitle":bodys.timezone+", "+bodys.gender,
+                         "buttons": [
+                    {
+                      "type": "postback",
+                      "title": "listings",
+                      "payload": "listings"
+                    },
+                    {
+                      "type": "postback",
+                      "title": "stats",
+                      "payload": "stats"
+                    }
+                  ]
+                    },{
+                        "title": "Welcome, "+bodys.first_name+" "+bodys.last_name,
+                        "image_url": bodys.profile_pic,
+                        "subtitle":bodys.timezone+", "+bodys.gender,
+                         "buttons": [
+                    {
+                      "type": "postback",
+                      "title": "listings",
+                      "payload": "listings"
+                    },
+                    {
+                      "type": "postback",
+                      "title": "stats",
+                      "payload": "stats"
+                    }
+                  ]
+                    }]
             });
         });
        
@@ -84,4 +126,5 @@ app.get("/getdata/",function(req, res){
 app.listen(process.env.PORT || 3000, function (message) {
     console.log("Server is running on the port...");
 })
+
 
