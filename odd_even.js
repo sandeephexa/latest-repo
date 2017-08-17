@@ -53,7 +53,7 @@ var message = '';
   }
   if (req.body.result.action == "result.result-custom") 
     {
-        if (req.body.result.resolvedQuery == "Get my profile picture" req.body.result.resolvedQuery == "Get my id") 
+        if (req.body.result.resolvedQuery == "Get my profile picture" || req.body.result.resolvedQuery == "Get my id") 
         {
          request(
              {
