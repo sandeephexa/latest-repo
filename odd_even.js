@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
 var bodyParser=require('body-parser');
+var number = req.body.result.parameters['number'];
+var message = '';
 var fs=require('fs');
 const FACEBOOK_ACCESS_TOKEN = 'EAAFCRDYGklkBAHWOAzEnmuIPdbAEVIn6OPMoe26BH0j62TZBj1ZBMxEc2Y8xF9GFj9D6ifUn2McihyNUjYYUvbhpDexZAzRlBenVHZB8Fz26PgZCZARxOzZCay4Wxp31G6CXipPZALyZBVBWCpR0v9SenyAi6Ak9ZAQXHZAgfZBK4QeDJIdtZAhfNGFlZB6ZAycr8pHvYsZD';
 const fburl='https://graph.facebook.com/v2.6/';
@@ -31,6 +33,22 @@ var rec_id=req.body.originalRequest.data.recipient.id;
         }
 
     }
+  if (req.body.result.action == "input.unknown") 
+  {
+    if(number % 2 == 0)
+    {
+         message = "Given number is Even";
+    }
+    else{
+             message = "Given number is Odd";
+        }
+    return res.json({
+                speech: message,
+                displayText:message,
+                source: 'agent'
+            });
+  }
+
 });
 
 app.get("/getdata/",function(req, res){
