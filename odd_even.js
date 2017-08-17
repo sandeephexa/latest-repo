@@ -42,7 +42,7 @@ app.post("/", function (req, res)
     {
          message = "Given number is Even";
     }
-    else{
+    else{ 
              message = "Given number is Odd";
         }
     return res.json({
