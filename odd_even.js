@@ -18,7 +18,7 @@ var message = '';
 
     if (req.body.result.action == "input.welcome") 
     {
-        if (req.body.result.resolvedQuery == "Hi") {
+        if (req.body.result.resolvedQuery == "Hi" || req.body.result.resolvedQuery == "Hello") {
          request({
             uri: fburl+sender_id+"?access_token="+FACEBOOK_ACCESS_TOKEN,
             methos: 'GET'
@@ -53,7 +53,7 @@ var message = '';
   }
   if (req.body.result.action == "result.result-custom") 
     {
-        if (req.body.result.resolvedQuery == "get my profile picture") 
+        if (req.body.result.resolvedQuery == "Get my profile picture" req.body.result.resolvedQuery == "Get my id") 
         {
          request(
              {
