@@ -95,14 +95,14 @@ var message = '';
                                                              {
                                                                  "type": "web_url",
                                                                   "title": "wiki",
-                                                                 "payload": "listings",
+                                                        
                                                                  "url" : "https://en.wikipedia.org/wiki/Virat_Kohli"
                                                              },
                                                              {
                                                                  "type": "postback",
                                                                  "title": "stats",
                                                                  "payload": "stats",
-                                                                 "url" : "www.google.com"
+                                                   
                                                              }
                                                             ]
                                                              
