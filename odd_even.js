@@ -93,7 +93,7 @@ var message = '';
                                                              "subtitle":bodys.timezone,
                                                              "buttons": [
                                                              {
-                                                                 "type": "postback",
+                                                                 "type": "web_url",
                                                                   "title": "wiki",
                                                                  "payload": "listings",
                                                                  "url" : "https://en.wikipedia.org/wiki/Virat_Kohli"
