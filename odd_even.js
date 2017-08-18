@@ -99,11 +99,10 @@ var message = '';
                                                                  "url" : "https://en.wikipedia.org/wiki/Virat_Kohli"
                                                              },
                                                              {
-                                                                 "type": "web_url",
-                                                                 "title": "stats",
-                                                                 "url" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7_pVUIhajaPtoCmHQqu0cG22YJ31kXsp9GVRWeznTcg3K0ncCCg",
-                                                   
-                                                             }
+                                                                "type":"phone_number",
+                                                                "title":"Call Representative",
+                                                                "payload":"8074174490"
+                                                            }
                                                             ]
                                                              
                                                         }
