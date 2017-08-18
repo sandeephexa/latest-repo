@@ -99,7 +99,7 @@ var message = '';
                                                                  "url" : "https://en.wikipedia.org/wiki/Virat_Kohli"
                                                              },
                                                              {
-                                                                 "type": "postback",
+                                                                 "type": "web_url",
                                                                  "title": "stats",
                                                                  "url" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7_pVUIhajaPtoCmHQqu0cG22YJ31kXsp9GVRWeznTcg3K0ncCCg",
                                                    
