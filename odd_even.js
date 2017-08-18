@@ -88,9 +88,23 @@ var message = '';
                                                              
                                                         },
                                                         {
-                                                            "title": "Image 2 "+bodys.last_name,
+                                                            "title": "Kohli  ",
                                                             "image_url": "http://images.indianexpress.com/2015/08/virat-kohli_reuters_m3.jpg",
                                                              "subtitle":bodys.timezone,
+                                                             "buttons": [
+                                                             {
+                                                                 "type": "postback",
+                                                                  "title": "wiki",
+                                                                 "payload": "listings",
+                                                                 "url" : "https://en.wikipedia.org/wiki/Virat_Kohli"
+                                                             },
+                                                             {
+                                                                 "type": "postback",
+                                                                 "title": "stats",
+                                                                 "payload": "stats",
+                                                                 "url" : "www.google.com"
+                                                             }
+                                                            ]
                                                              
                                                         }
                                                         ]
