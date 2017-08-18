@@ -101,7 +101,7 @@ var message = '';
                                                              {
                                                                  "type": "postback",
                                                                  "title": "stats",
-                                                                 "payload": "stats",
+                                                                 "url" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7_pVUIhajaPtoCmHQqu0cG22YJ31kXsp9GVRWeznTcg3K0ncCCg",
                                                    
                                                              }
                                                             ]
